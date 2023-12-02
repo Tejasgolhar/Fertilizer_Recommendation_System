@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Registration Form</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+body{
+  background: url(/templates/images/5.jpg);
+  background-color: #07922e;
+  background-size: cover;
+  background-position: inherit;
+  font-family: 'Nunito', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition:all .2s linear;
+
+  padding: 0 10px;
+}
+.wrapper{
+  max-width: 50rem;
+  width: 100%;
+  background: #fff;
+  margin: 60px auto;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.125);
+  padding: 30px;
+}
+.wrapper1{
+  max-width: 50rem;
+  width: 100%;
+  background: #1b530a;
+  color: white;
+  margin: 20px auto;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.125);
+  padding: 30px;
+}
+.wrapper .title{
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #fec107;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.wrapper .form{
+  width: 100%;
+}
+
+.wrapper .form .inputfield{
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.wrapper .form .inputfield label{
+   width: 200px;
+   color: #757575;
+   margin-right: 10px;
+  font-size: 14px;
+  font-weight: bolder;
+}
+
+.wrapper .form .inputfield .input,
+.wrapper .form .inputfield .textarea{
+  width: 100%;
+  outline: none;
+  border: 1px solid #d5dbd9;
+  font-size: 15px;
+  padding: 8px 10px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.wrapper .form .inputfield .textarea{
+  width: 100%;
+  height: 125px;
+  resize: none;
+}
+
+.wrapper .form .inputfield .custom_select{
+  position: relative;
+  width: 100%;
+  height: 37px;
+}
+
+.wrapper .form .inputfield .custom_select:before{
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  border: 8px solid;
+  border-color: #d5dbd9 transparent transparent transparent;
+  pointer-events: none;
+}
+
+.wrapper .form .inputfield .custom_select select{
+  -webkit-appearance: none;
+  -moz-appearance:   none;
+  appearance:        none;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  border: 0px;
+  padding: 8px 10px;
+  font-size: 15px;
+  border: 1px solid #d5dbd9;
+  border-radius: 3px;
+}
+
+
+.wrapper .form .inputfield .input:focus,
+.wrapper .form .inputfield .textarea:focus,
+.wrapper .form .inputfield .custom_select select:focus{
+  border: 1px solid #fec107;
+}
+
+.wrapper .form .inputfield p{
+   font-size: 14px;
+   color: #757575;
+}
+.wrapper .form .inputfield .check{
+  width: 15px;
+  height: 15px;
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+.wrapper .form .inputfield .check input[type="checkbox"]{
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+.wrapper .form .inputfield .check .checkmark{
+  width: 15px;
+  height: 15px;
+  border: 1px solid #fec107;
+  display: block;
+  position: relative;
+}
+.wrapper .form .inputfield .check .checkmark:before{
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 2px;
+  width: 5px;
+  height: 2px;
+  border: 2px solid;
+  border-color: transparent transparent #fff #fff;
+  transform: rotate(-45deg);
+  display: none;
+}
+.wrapper .form .inputfield .check input[type="checkbox"]:checked ~ .checkmark{
+  background: #fec107;
+}
+
+.wrapper .form .inputfield .check input[type="checkbox"]:checked ~ .checkmark:before{
+  display: block;
+}
+
+.wrapper .form .inputfield .btn{
+  width: 100%;
+   padding: 8px 10px;
+  font-size: 15px; 
+  border: 0px;
+  background:  #149600;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 3px;
+  outline: none;
+}
+
+.wrapper .form .inputfield .btn:hover{
+  background: #12d700;
+}
+
+.wrapper .form .inputfield:last-child{
+  margin-bottom: 0;
+}
+
+@media (max-width:420px) {
+  .wrapper .form .inputfield{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .wrapper .form .inputfield label{
+    margin-bottom: 5px;
+  }
+  .wrapper .form .inputfield.terms{
+    flex-direction: row;
+  }
+}
+
+header{
+    position: fixed;
+    top:0; left: 0; right:0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background:#fff;
+    /* padding:2rem 9%; */
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    padding: 10px;
+  }
+  
+  header .logo{
+    font-size: 1.8rem;
+    font-weight: bolder;
+    color:#666;
+  }
+  
+  header .logo i{
+    padding-right: .5rem;
+    color:var(--red);
+  }
+  
+  header .navbar a{
+    font-size: 1.6rem;
+    margin-left: 2rem;
+    color:#004023;
+    text-decoration: none;
+  }
+  
+
+  
+  #menu-bar{
+    font-size: 3rem;
+    cursor: pointer;
+    color:rgb(62, 204, 7);
+    border:.1rem solid #666;
+    border-radius: .3rem;
+    padding:.5rem 1.5rem;
+    display: none;
+  }
+  .navbar{
+    background-color: #f9fffc;
+   
+  }
+
+  
+@media(max-width:768px){
+
+    #menu-bar{
+      display: initial;
+    }
+  
+    header .navbar{
+      position: absolute;
+      top:100%; left:0; right:0;
+      background: rgb(225, 248, 227);
+      border-top: .1rem solid rgba(0,0,0,.1);
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    header .navbar a:hover{
+        background-color: rgb(127, 224, 136);
+    }
+  
+    header .navbar.active{
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+  
+    header .navbar a{
+      margin: 1.5rem;
+      padding:1.5rem 140px;
+      display: block;
+      border:.2rem solid rgba(0,0,0,.1);
+      border-left:.5rem solid var(--red);
+      /* background:#fff; */
+    }
+
+}
+</style>
+<body style="background:url(../static/images/3.jpg);">
+  <header> 
+    <!-- 
+        <a href="#" class="logo"><i class="fas fa-seedling"></i>Ferti</a> -->
+    
+        <div id="menu-bar" class="fas fa-bars"></div>
+    
+        <nav class="navbar">
+            <a href="{{ url_for('home') }}">home</a>
+            <a href="{{ url_for('Detail') }}">Details</a>
+            <a href="{{ url_for('Model1') }}">Model</a>
+        </nav>
+    
+    </header>
+<div class="wrapper">
+    <div class="title">
+      Recommeding Best Fertilizer for your crop
+    </div>
+    <form method="post" action="{{ url_for('predict')}}" id="Home" class="form">
+      <div class="inputfield">
+        <label for="temp">Temperature</label>
+        <input type="number" class="input" name="temp" id="temp">
+      </div>  
+      <div class="inputfield">
+        <label for="humid">Humidity</label>
+        <input type="number" class="input" name="humid" id="humid">
+      </div>  
+      <div class="inputfield">
+        <label for="mois">Moisture:</label>
+        <input type="number" class="input" name="mois" id="mois">
+      </div>  
+      <div class="inputfield">
+        <label for="soil">Soil Type:</label>
+        <div class="custom_select">
+          <select name="soil" id="soil">
+            <option value="0">Black</option>
+            <option value="1">Clayey</option>
+            <option value="2">Loamy</option>
+            <option value="3">Red</option>
+            <option value="4">Sandy</option>
+          </select>
+        </div>
+      </div> 
+      <div class="inputfield">
+        <label for="crop">Crop Type:</label>
+        <div class="custom_select">
+          <select name="crop" id="crop">
+            <option value="0">Barley</option>
+            <option value="1">Cotton</option>
+            <option value="2">Ground Nuts</option>
+            <option value="3">Maize</option>
+            <option value="4">Millets</option>
+            <option value="5">Oil Seeds</option>
+            <option value="6">Paddy</option>
+            <option value="7">Pulses</option>
+            <option value="8">Sugarcane</option>
+            <option value="9">Tobacco</option>
+            <option value="10">Wheat</option>
+            <option value="11">coffee</option>
+            <option value="12">kidneybeans</option>
+            <option value="13">orange</option>
+            <option value="14">pomegranate</option>
+            <option value="15">rice</option>
+            <option value="16">watermelon</option>
+          </select>
+        </div>
+      </div> 
+      <div class="inputfield">
+        <label for="nitro">Nitrogen:</label>
+        <input type="number" class="input" name="nitro" id="nitro">
+      </div> 
+      <div class="inputfield">
+        <label for="pota">Potassium:</label>
+        <input type="number" class="input" name="pota" id="pota">
+      </div> 
+      <div class="inputfield">
+        <label for="phos">Phosphorous:</label>
+        <input type="number" class="input" name="phos" id="phos">
+      </div> 
+      <div class="inputfield">
+        <button type="submit" name="submit" class="btn">Predict</button>
+      </div>
+    </form>
+    
+
+	<div class="wrapper1">
+<h1 id="crop"  class="crop">Recommended Fertilizer for Your Crop is: {{x}} </h1>
+    </div>
+
+
+
+
+<script>
+        
+  let menu = document.querySelector('#menu-bar');
+  let navbar = document.querySelector('.navbar');
+  
+  menu.onclick = () =>{
+  
+    menu.classList.toggle('fa-times');
+    navbar.classList.toggle('active');
+  
+  }
+  window.onscroll = () =>{
+  
+      menu.classList.remove('fa-times');
+      navbar.classList.remove('active');
+    
+      if(window.scrollY > 60){
+        document.querySelector('#scroll-top').classList.add('active');
+      }else{
+        document.querySelector('#scroll-top').classList.remove('active');
+      }
+    
+    }
+    
+      </script>
+</body>
+</html>

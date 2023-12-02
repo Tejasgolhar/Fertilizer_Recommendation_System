@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+    
+    <title>Document</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap');
+:root{
+    --red:#008116;
+  }
+*{
+
+    font-family: 'Nunito', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition:all .2s linear;
+  }
+  
+  *::selection{
+    background:var(--red);
+    color:#fff;
+  }
+  
+  html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+  
+  body{
+    background:#f7f7f7;
+  }
+/* All buttons properties herer */
+  .btn{
+    display: inline-block;
+    padding:.8rem 3rem;
+    border:.2rem solid var(--red);
+    color:black;
+    cursor: pointer;
+    font-size: 1.7rem;
+    border-radius: .5rem;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    margin-top: 1rem;
+    background-color: white;
+  }
+    
+  .btn:hover{
+    color:#fff;
+    background-color: #2bc570;
+  }
+/* All buttons properties herer */
+/* ------------------------------------------------------------------------------------- */
+.heading{
+    text-align: center;
+    font-size: 3.5rem;
+    padding:1rem;
+    color:#666;
+  }
+  
+  .heading span{
+    color:var(--red);
+  }
+  
+header{
+    position: fixed;
+    top:0; left: 0; right:0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background:#fff;
+    padding:2rem 9%;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+  }
+  
+  header .logo{
+    font-size: 2.5rem;
+    font-weight: bolder;
+    color:#666;
+  }
+  
+  header .logo i{
+    padding-right: .5rem;
+    color:var(--red);
+  }
+  
+  header .navbar a{
+    font-size: 2rem;
+    margin-left: 2rem;
+    color:#666;
+  }
+  
+  header .navbar a:hover{
+    color:var(--red);
+  }
+  
+  #menu-bar{
+    font-size: 3rem;
+    cursor: pointer;
+    color:rgb(62, 204, 7);
+    border:.1rem solid #666;
+    border-radius: .3rem;
+    padding:.5rem 1.5rem;
+    display: none;
+  }
+  
+
+  
+@media(max-width:768px){
+
+    #menu-bar{
+      display: initial;
+    }
+  
+    header .navbar{
+      position: absolute;
+      top:100%; left:0; right:0;
+      background: rgb(225, 248, 227);
+      border-top: .1rem solid rgba(0,0,0,.1);
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    header .navbar a:hover{
+        background-color: rgb(127, 224, 136);
+    }
+  
+    header .navbar.active{
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+  
+    header .navbar a{
+      margin: 1.5rem;
+      padding:1.5rem 140px;
+      display: block;
+      border:.2rem solid rgba(0,0,0,.1);
+      border-left:.5rem solid var(--red);
+      /* background:#fff; */
+    }
+
+}
+
+/* catogrey section */
+.popular .box-container .box1 h3{
+  color:#333;
+  font-size: 2.5rem;
+  padding-top: 1rem;
+}
+.popular .box-container .box1{
+  padding:5rem;
+  width: 120rem;
+  background:#fff;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+  border:.1rem solid rgba(0,0,0,.3);
+  border-radius: .5rem;
+  text-align: center;
+  margin-left: 3rem;
+  position: relative;
+}
+.popular .box-container .box1 img{
+  height:30rem;
+  object-fit: cover;
+  width:100%;
+  border-radius: .5rem;
+}
+
+/* home section css */
+
+section{
+    padding:1rem 9%;
+  }
+.home{
+    display: flex;
+    flex-wrap: wrap;
+    gap:1.5rem;
+    min-height: 100vh;
+    align-items: center;
+    background:url("{{ url_for('static', filename='images/crop_background.jpg') }}") no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+  }
+  
+  .home .content{
+    flex:1 1 40rem;
+    padding-top: 6.5rem;
+  }
+  
+  .home .image{
+    flex:1 1 40rem;
+  }
+  
+  
+  
+  .home .content h3{
+    font-size: 5rem;
+    font-weight: bolder;
+    color:rgb(255, 255, 255);
+  }
+  
+  .home .content p{
+    font-size: 1.7rem;
+    color:rgb(245, 244, 244);
+    padding:1rem 0;
+  }
+  .home .content p:hover{
+  
+    font-weight: bolder;
+  }
+
+  /* home section css ends */
+  
+
+  .popular .box-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap:1.5rem;
+  }
+  
+  .popular .box-container .box{
+    padding:1rem;
+    background:#fff;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    border:.1rem solid rgba(0,0,0,.3);
+    border-radius: .5rem;
+    text-align: center;
+    
+    position: relative;
+  }
+  
+  .popular .box-container .box img{
+    height:25rem;
+    object-fit: cover;
+    width:100%;
+    border-radius: .5rem;
+  }
+  
+  .popular .box-container .box .price{
+    position: absolute;
+    top:21rem; left:3rem;
+    background:var(--red);
+    color:#fff;
+    font-size: 2rem;
+    padding:.5rem 1rem;
+    border-radius: .5rem;
+  }
+  .popular .box-container .box .btn{
+    margin: 1rem;
+  }
+  .popular .box-container .box h3{
+    color:#333;
+    font-size: 2.5rem;
+    padding-top: 1rem;
+  }
+  .popular .box-container .box h2{
+    color:rgb(151, 151, 151);
+    letter-spacing: 1px;
+  }
+  .popular .box-container .box h1{
+    color:rgb(255, 255, 255);
+    font-size: 2rem;
+    background-color: #008116;
+    width: 20%;
+    margin: 1rem;
+    margin-left: 15rem;
+    align-items: center;
+  }
+  .popular .box-container .box .stars i{
+    color:gold;
+    font-size: 1.7rem;
+    padding:1rem .1rem;
+  }
+  
+
+
+  /* services page start herr */
+
+  .steps{
+    display: flex;
+    flex-wrap: wrap;
+    gap:1.5rem;
+    padding:1rem;
+  }
+  
+  .steps .box{
+    flex:1 1 25rem;
+    padding:1rem;
+    text-align: center;
+  }
+  .steps .box1{
+    flex:1 1 25rem;
+    padding:1rem;
+    text-align: center;
+  }
+  .steps .box1 img{
+    width: 19rem;
+    border-radius: 50%;
+    border:1rem solid #fff;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+  }
+  .steps .box img{
+    border-radius: 50%;
+    border:1rem solid #fff;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+  }
+  
+  .steps .box,.box1 h3{
+    font-size: 3rem;
+    color:#333;
+    padding:1rem;
+  }
+  
+/* gallery iamges section */
+
+.gallery .box-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap:1.5rem;
+}
+
+.gallery .box-container .box{
+  height:25rem;
+  flex:1 1 32rem;
+  border:1rem solid #fff;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+  border-radius: .5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery .box-container .box img{
+  height:100%;
+  width:100%;
+  object-fit: cover;
+}
+
+.gallery .box-container .box .content{
+  position: absolute;
+  top:-100%; left:0;
+  height: 100%;
+  width:100%;
+  background:rgba(255,255,255,.9);
+  padding:2rem;
+  padding-top: 5rem;
+  text-align: center;
+}
+
+.gallery .box-container .box .content h3{
+  font-size: 2.5rem;
+  color:#333;
+}
+
+.gallery .box-container .box .content p{
+  font-size: 1.5rem;
+  color:#666;
+  padding:1rem 0;
+}
+
+.gallery .box-container .box:hover .content{
+  top:0;
+}
+
+/* contact form starrt here */
+
+.order .row{
+  padding:2rem;
+  
+  
+  display: flex;
+  flex-wrap: wrap;
+  gap:1.5rem;
+
+}
+
+.order .row .image{
+  flex:1 1 3rem;
+}
+
+.order .row .image img{
+  height: 100%;
+  width:100%;
+  object-fit: cover;
+  border-radius: .5rem;
+}
+
+.order .row form{
+  flex:1 1 50rem;
+  padding:1rem;
+}
+
+.order .row form .inputBox{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.order .row form .inputBox input, .order .row form textarea{
+  padding:1rem;
+  margin:1rem 0;
+  font-size: 1.7rem;
+  color:rgb(5, 54, 7);
+  text-transform: none;
+  border:.1rem solid rgba(0,0,0,.3);
+  border-radius: .5rem;
+  width:49%;
+}
+
+.order .row form textarea{
+  width:100%;
+  resize: none;
+  height:15rem;
+}
+
+.order .row form .btn{
+  background:none;
+}
+
+.order .row form .btn:hover{
+  background:var(--red);
+}
+
+.footer{
+  background-color:slategrey;
+}
+
+  
+@media(max-width:991px){
+
+    html{
+      font-size: 55%;
+    }
+  
+    header{
+      padding:2rem;
+    }
+  
+    section{
+      padding:2rem;
+    }
+  
+  }
+
+</style>
+<body>
+     <header> 
+
+        <a href="#" class="logo"><i class="fas fa-seedling"></i>Ferti</a>
+    
+        <div id="menu-bar" class="fas fa-bars"></div>
+    
+        <nav class="navbar">
+            <a href="#home">home</a>
+            <a href="{{ url_for('Detail') }}">Details</a>
+            <a href="{{ url_for('Model1') }}">Model</a>
+        </nav>
+    
+    </header>
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+
+    <div class="content">
+        <h3>Fertilizer Recommendation System</h3>
+        <p>Fertilizer recommendation systems can help farmers make more informed decisions about nutrient management, increase crop yields, reduce production costs, and minimize environmental harm. These systems are a part of precision agriculture, which leverages technology to optimize farming practices and improve overall agricultural sustainability..</p>
+        <a href="#" class="btn">See More</a>
+    </div>
+
+    <!-- <div class="image">
+        <img src="images/home-img.png" alt="">
+    </div> -->
+
+</section>
+
+<!-- home section ends -->
+
+<!-- category section start -->
+
+<section class="popular" id="popular">
+
+    <h1 class="heading">OurModel</h1>
+
+    <div class="box-container">
+
+        <div class="box1">
+            <img src="{{ url_for('static', filename='images/fertilizer.jpg') }}" alt="">
+            <h3>Fertilizer model</h3>   
+            <a href="{{ url_for('Model1') }}" class="btn product_button">visit</a>
+        </div>
+       
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="gallery" id="gallery">
+
+    <h1 class="heading">Photos OF Farmers </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="{{ url_for('static', filename='images/f1.webp') }}" alt="">
+            
+        </div>
+        <div class="box">
+            <img src="{{ url_for('static', filename='images/f2.jpeg') }}" alt="">
+          
+        </div>
+        <div class="box">
+            <img src="{{ url_for('static', filename='images/f3.png') }}" alt="">
+         
+        </div>
+        <div class="box">
+            <img src="{{ url_for('static', filename='images/f4.jpg') }}" alt="">
+           
+        </div>
+    
+
+    </div>
+
+</section>
+
+
+
+<!-- order section ends -->
+<section class="footer" style="background-color: rgb(255, 255, 255)">
+    <h1>Fertilizer Recommendation System...    Created by krushnakant bankar & Tejas Golhar.. </h1>
+    
+</section>
+
+    <script>
+        
+let menu = document.querySelector('#menu-bar');
+let navbar = document.querySelector('.navbar');
+
+menu.onclick = () =>{
+
+  menu.classList.toggle('fa-times');
+  navbar.classList.toggle('active');
+
+}
+window.onscroll = () =>{
+
+    menu.classList.remove('fa-times');
+    navbar.classList.remove('active');
+  
+    if(window.scrollY > 60){
+      document.querySelector('#scroll-top').classList.add('active');
+    }else{
+      document.querySelector('#scroll-top').classList.remove('active');
+    }
+  
+  }
+  
+    </script>
+</body>
+</html>
